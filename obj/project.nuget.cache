@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hwwJ4czVz2Q=",
+  "dgSpecHash": "1FGVMvPVaKY=",
   "success": true,
-  "projectFilePath": "/Users/leoalemax/Workspace/@alemax/pkhex-exporter/pkhex-exporter.csproj",
+  "projectFilePath": "/Users/leoalemax/Workspace/@leonardoalemax/PkHeX.Exporter/pkhex-exporter.csproj",
   "expectedPackageFiles": [
     "/Users/leoalemax/.nuget/packages/microsoft.dotnet.ilcompiler/9.0.0/microsoft.dotnet.ilcompiler.9.0.0.nupkg.sha512",
     "/Users/leoalemax/.nuget/packages/microsoft.net.illink.tasks/9.0.0/microsoft.net.illink.tasks.9.0.0.nupkg.sha512",

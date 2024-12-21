@@ -14,7 +14,7 @@ class Json
     _game = game;
   }
 
-  public void generate(String path)
+  public void generate(String path, string folder, string destination)
   {
     string jsonString = "{";
 
@@ -33,9 +33,11 @@ class Json
     jsonString += preparePokemonList("party", allValidParty.Pokemons) + ",";
     jsonString += preparePokemonList("box", allValid) + "}";
 
-    string[] split = path.Split('.');
 
-    string fileName = "./" + split[split.Length - 2] + ".json";
+    string[] split = path.Replace(folder, "").Replace("/", "").Split('.');
+    string saveName = split[split.Length - 2];
+
+    string fileName = destination + "/" + saveName + ".json";
     File.WriteAllText(fileName, jsonString); File.WriteAllText(@"./path.json", jsonString);
   }
 

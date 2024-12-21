@@ -1,26 +1,33 @@
 ﻿using PKHeX.Facade;
 using PKHeX.Exporter;
 
+
 // See https://aka.ms/new-console-template for more information
 
 namespace ConsoleApplication1
 {
   class Program
   {
+
+    public static string folder;
+    public static string destination;
+
     static void Main(string[] args)
     {
 
-      string path = args[0];
+      folder = args.ElementAtOrDefault(0) == null ? "./" : args[0];
+      destination = args.ElementAtOrDefault(1) == null ? "./pokemon-bank-files" : args[1];
 
-      using var watcher = new FileSystemWatcher(path);
 
-      foreach (string file in Directory.EnumerateFiles(path, "*.sav"))
+      foreach (string file in Directory.EnumerateFiles(folder, "*POKEMON*.sav"))
       {
         var game = Game.LoadFrom(file);
         var json = new Json(game);
 
-        json.generate(file);
+        json.generate(file, folder, destination);
       }
+
+      using var watcher = new FileSystemWatcher(folder);
 
 
       watcher.NotifyFilter = NotifyFilters.Attributes
@@ -38,7 +45,7 @@ namespace ConsoleApplication1
       watcher.Renamed += OnRenamed;
       watcher.Error += OnError;
 
-      watcher.Filter = "*.sav";
+      watcher.Filter = "*.srm";
       watcher.IncludeSubdirectories = true;
       watcher.EnableRaisingEvents = true;
 
@@ -56,7 +63,7 @@ namespace ConsoleApplication1
       var game = Game.LoadFrom(path);
       var json = new Json(game);
 
-      json.generate(path);
+      json.generate(path, folder, destination);
 
       Console.WriteLine($"gerated json for: {e.FullPath}");
     }
@@ -72,7 +79,7 @@ namespace ConsoleApplication1
       var game = Game.LoadFrom(path);
       var json = new Json(game);
 
-      json.generate(path);
+      json.generate(path, folder, destination);
 
       Console.WriteLine($"gerated json for: {e.FullPath}");
     }

@@ -133,11 +133,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/leoalemax/Workspace/@alemax/pkhex-exporter/pkhex-exporter.csproj",
+      "projectUniqueName": "/Users/leoalemax/Workspace/@leonardoalemax/PkHeX.Exporter/pkhex-exporter.csproj",
       "projectName": "pkhex-exporter",
-      "projectPath": "/Users/leoalemax/Workspace/@alemax/pkhex-exporter/pkhex-exporter.csproj",
+      "projectPath": "/Users/leoalemax/Workspace/@leonardoalemax/PkHeX.Exporter/pkhex-exporter.csproj",
       "packagesPath": "/Users/leoalemax/.nuget/packages/",
-      "outputPath": "/Users/leoalemax/Workspace/@alemax/pkhex-exporter/obj/",
+      "outputPath": "/Users/leoalemax/Workspace/@leonardoalemax/PkHeX.Exporter/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/leoalemax/.nuget/NuGet/NuGet.Config"
