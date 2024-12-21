@@ -1,27 +1,38 @@
-name: Build
-
+name: build
 on:
     push:
         branches:
-            - main
+            - "**"
+    pull_request:
+        branches:
+            - "**"
 
 env:
-    DOTNET_VERSION: "9.0.x"
+    DOTNETVERSION: "9.0.x"
+    APP: "PkHex.Exporter"
+    SOLUTION: "./src/PkHex.Exporter.sln"
+    BUILDOUTPUTPATH: "./src/PkHex.Exporter/bin/Release/net9.0"
 
 jobs:
     build:
         runs-on: ubuntu-latest
-
         steps:
-            - uses: actions/checkout@v3
+            - name: Checkout repository
+              uses: actions/checkout@v3
 
-            - name: Setup .NET 📦
+            - name: Setup .NET Core SDK ${{ env.DOTNETVERSION }}
               uses: actions/setup-dotnet@v3
               with:
-                  dotnet-version: ${{ env.DOTNET_VERSION }}
+                  dotnet-version: ${{ env.DOTNETVERSION }}
 
-            - name: Install dependencies 📂
-              run: dotnet restore
+            - name: Install dependencies
+              run: dotnet restore ${{ env.SOLUTION }}
 
-            - name: Build 🧱
-              run: dotnet build --configuration Release --no-restore
+            - name: Build
+              run: dotnet build ${{ env.SOLUTION }} --configuration Release --no-restore
+
+            - name: Upload app build artifact
+              uses: actions/upload-artifact@v3
+              with:
+                  name: ${{ env.APP }}
+                  path: ${{ env.BUILDOUTPUTPATH }}
