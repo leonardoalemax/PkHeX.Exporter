@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("pkhex-exporter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7bf51364dae76b68eace96f8eb305906d0be07ea")]
 [assembly: System.Reflection.AssemblyProductAttribute("pkhex-exporter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("pkhex-exporter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

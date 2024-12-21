@@ -1,6 +1,5 @@
 ﻿using PKHeX.Facade;
-using PKHeX.Facade.Pokemons;
-using PKHeX.Facade.Repositories;
+using PKHeX.Exporter;
 
 // See https://aka.ms/new-console-template for more information
 
@@ -11,78 +10,98 @@ namespace ConsoleApplication1
     static void Main(string[] args)
     {
 
-      string jsonString = "{";
+      string path = args[0];
 
-      var path = args[0];
+      using var watcher = new FileSystemWatcher(path);
+
+      foreach (string file in Directory.EnumerateFiles(path, "*.sav"))
+      {
+        var game = Game.LoadFrom(file);
+        var json = new Json(game);
+
+        json.generate(file);
+      }
+
+
+      watcher.NotifyFilter = NotifyFilters.Attributes
+                                 | NotifyFilters.CreationTime
+                                 | NotifyFilters.DirectoryName
+                                 | NotifyFilters.FileName
+                                 | NotifyFilters.LastAccess
+                                 | NotifyFilters.LastWrite
+                                 | NotifyFilters.Security
+                                 | NotifyFilters.Size;
+
+      watcher.Changed += OnChanged;
+      watcher.Created += OnCreated;
+      watcher.Deleted += OnDeleted;
+      watcher.Renamed += OnRenamed;
+      watcher.Error += OnError;
+
+      watcher.Filter = "*.sav";
+      watcher.IncludeSubdirectories = true;
+      watcher.EnableRaisingEvents = true;
+
+      Console.WriteLine("Press enter to exit.");
+      Console.ReadLine();
+    }
+
+    private static void OnChanged(object sender, FileSystemEventArgs e)
+    {
+
+      Console.WriteLine($"Changed: {e.FullPath}");
+
+      var path = e.FullPath;
 
       var game = Game.LoadFrom(path);
+      var json = new Json(game);
 
+      json.generate(path);
 
-      jsonString += "\"generation\": \"" + game.Generation + "\", ";
-      jsonString += "\"version\": \"" + game.GameVersionApproximation.Name + "\", ";
-      jsonString += "\"user\": \"" + game.Trainer.Name + "\", ";
-      jsonString += "\"id\": \"" + game.Trainer.Id.TID + "\", ";
-      jsonString += "\"gender\": \"" + game.Trainer.Gender + "\", ";
-
-      var allValid = game.Trainer.PokemonBox.All
-                  .Where(p => p.Species != SpeciesDefinition.None)
-                  .ToList();
-
-      var allValidParty = game.Trainer.Party;
-
-      jsonString += preparePokemonList("party", allValidParty.Pokemons) + ",";
-      jsonString += preparePokemonList("box", allValid) + "}";
-
-      string fileName = args[0] + ".json";
-      File.WriteAllText(fileName, jsonString); File.WriteAllText(@"./path.json", jsonString);
+      Console.WriteLine($"gerated json for: {e.FullPath}");
     }
 
-    public static string preparePokemonList(string title, IList<Pokemon> pokemon)
+    private static void OnCreated(object sender, FileSystemEventArgs e)
     {
-      string listString = "\"" + title + "\": [";
+      string value = $"Created: {e.FullPath}";
+      Console.WriteLine(value);
 
-      Pokemon last = pokemon.Last();
 
-      foreach (var item in pokemon)
+      var path = e.FullPath;
+
+      var game = Game.LoadFrom(path);
+      var json = new Json(game);
+
+      json.generate(path);
+
+      Console.WriteLine($"gerated json for: {e.FullPath}");
+    }
+
+    private static void OnDeleted(object sender, FileSystemEventArgs e) =>
+        Console.WriteLine($"Deleted: {e.FullPath}");
+
+    private static void OnRenamed(object sender, RenamedEventArgs e)
+    {
+      Console.WriteLine($"Renamed:");
+      Console.WriteLine($"    Old: {e.OldFullPath}");
+      Console.WriteLine($"    New: {e.FullPath}");
+
+    }
+
+    private static void OnError(object sender, ErrorEventArgs e) =>
+        PrintException(e.GetException());
+
+    private static void PrintException(Exception? ex)
+    {
+      if (ex != null)
       {
-        listString += preparePokemon(item);
-
-        if (!item.Equals(last))
-        {
-          listString += ",";
-        }
-
+        Console.WriteLine($"Message: {ex.Message}");
+        Console.WriteLine("Stacktrace:");
+        Console.WriteLine(ex.StackTrace);
+        Console.WriteLine();
+        PrintException(ex.InnerException);
       }
-      listString += "]";
-
-      return listString;
     }
-
-
-    public static string preparePokemon(Pokemon pokemon)
-    {
-
-      string pokemonJsonString = "{";
-      pokemonJsonString += "\"name\": \"" + pokemon.Species.Name + "\", ";
-      pokemonJsonString += "\"id\": \"" + pokemon.Species.Id + "\", ";
-      pokemonJsonString += "\"level\": \"" + pokemon.Level + "\", ";
-      pokemonJsonString += "\"ball\": \"" + pokemon.Ball.Id + "\", ";
-      pokemonJsonString += "\"met_level\": \"" + pokemon.MetConditions.Level + "\", ";
-      pokemonJsonString += "\"met_date\": \"" + pokemon.MetConditions.Date + "\", ";
-      pokemonJsonString += "\"met_location\": \"" + pokemon.MetConditions.Location.Name + "\", ";
-      pokemonJsonString += "\"met_fateful_encounter\": \"" + pokemon.MetConditions.FatefulEncounter + "\", ";
-      pokemonJsonString += "\"met_version\": \"" + pokemon.MetConditions.Version.Name + "\", ";
-      pokemonJsonString += "\"gender\": \"" + pokemon.Gender.Name + "\", ";
-      pokemonJsonString += "\"owner\": \"" + pokemon.Owner.Name + "\", ";
-      pokemonJsonString += "\"nickname\": \"" + pokemon.Nickname + "\", ";
-      pokemonJsonString += "\"shiny\": \"" + pokemon.IsShiny + "\", ";
-      pokemonJsonString += "\"uniqueId\": \"" + pokemon.UniqueId + "\"";
-
-      pokemonJsonString += "}";
-
-      return pokemonJsonString;
-    }
-
 
   }
 }

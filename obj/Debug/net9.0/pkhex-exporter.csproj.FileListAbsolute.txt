@@ -15,3 +15,4 @@
 /Users/leoalemax/Workspace/@alemax/pkhex-exporter/obj/Debug/net9.0/pkhex-exporter.csproj.AssemblyReference.cache
 /Users/leoalemax/Workspace/@alemax/pkhex-exporter/bin/Debug/net9.0/PKHeX.Core.dll
 /Users/leoalemax/Workspace/@alemax/pkhex-exporter/obj/Debug/net9.0/pkhex-ex.2737734D.Up2Date
+/Users/leoalemax/Workspace/@alemax/pkhex-exporter/obj/Debug/net9.0/pkhex-exporter.sourcelink.json
