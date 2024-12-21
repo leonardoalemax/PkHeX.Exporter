@@ -1,0 +1,91 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/leoalemax/Workspace/@alemax/pkhex-exporter/pkhex-exporter.csproj": {}
+  },
+  "projects": {
+    "/Users/leoalemax/Workspace/@alemax/pkhex-exporter/pkhex-exporter.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/leoalemax/Workspace/@alemax/pkhex-exporter/pkhex-exporter.csproj",
+        "projectName": "pkhex-exporter",
+        "projectPath": "/Users/leoalemax/Workspace/@alemax/pkhex-exporter/pkhex-exporter.csproj",
+        "packagesPath": "/Users/leoalemax/.nuget/packages/",
+        "outputPath": "/Users/leoalemax/Workspace/@alemax/pkhex-exporter/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/leoalemax/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.DotNet.ILCompiler": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )",
+              "autoReferenced": true
+            },
+            "PKHeX.Core": {
+              "target": "Package",
+              "version": "[24.11.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "runtime.osx-arm64.Microsoft.DotNet.ILCompiler",
+              "version": "[9.0.0, 9.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

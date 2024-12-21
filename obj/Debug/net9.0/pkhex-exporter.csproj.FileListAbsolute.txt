@@ -1,0 +1,17 @@
+/Users/leoalemax/Workspace/@alemax/pkhex-exporter/bin/Debug/net9.0/pkhex-exporter
+/Users/leoalemax/Workspace/@alemax/pkhex-exporter/bin/Debug/net9.0/pkhex-exporter.deps.json
+/Users/leoalemax/Workspace/@alemax/pkhex-exporter/bin/Debug/net9.0/pkhex-exporter.runtimeconfig.json
+/Users/leoalemax/Workspace/@alemax/pkhex-exporter/bin/Debug/net9.0/pkhex-exporter.dll
+/Users/leoalemax/Workspace/@alemax/pkhex-exporter/bin/Debug/net9.0/pkhex-exporter.pdb
+/Users/leoalemax/Workspace/@alemax/pkhex-exporter/obj/Debug/net9.0/pkhex-exporter.GeneratedMSBuildEditorConfig.editorconfig
+/Users/leoalemax/Workspace/@alemax/pkhex-exporter/obj/Debug/net9.0/pkhex-exporter.AssemblyInfoInputs.cache
+/Users/leoalemax/Workspace/@alemax/pkhex-exporter/obj/Debug/net9.0/pkhex-exporter.AssemblyInfo.cs
+/Users/leoalemax/Workspace/@alemax/pkhex-exporter/obj/Debug/net9.0/pkhex-exporter.csproj.CoreCompileInputs.cache
+/Users/leoalemax/Workspace/@alemax/pkhex-exporter/obj/Debug/net9.0/pkhex-exporter.dll
+/Users/leoalemax/Workspace/@alemax/pkhex-exporter/obj/Debug/net9.0/refint/pkhex-exporter.dll
+/Users/leoalemax/Workspace/@alemax/pkhex-exporter/obj/Debug/net9.0/pkhex-exporter.pdb
+/Users/leoalemax/Workspace/@alemax/pkhex-exporter/obj/Debug/net9.0/pkhex-exporter.genruntimeconfig.cache
+/Users/leoalemax/Workspace/@alemax/pkhex-exporter/obj/Debug/net9.0/ref/pkhex-exporter.dll
+/Users/leoalemax/Workspace/@alemax/pkhex-exporter/obj/Debug/net9.0/pkhex-exporter.csproj.AssemblyReference.cache
+/Users/leoalemax/Workspace/@alemax/pkhex-exporter/bin/Debug/net9.0/PKHeX.Core.dll
+/Users/leoalemax/Workspace/@alemax/pkhex-exporter/obj/Debug/net9.0/pkhex-ex.2737734D.Up2Date
