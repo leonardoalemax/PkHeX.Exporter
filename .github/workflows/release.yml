@@ -8,7 +8,7 @@ env:
     DOTNETVERSION: "9.0.x"
     APP: "PkHex.Exporter"
     SOLUTION: "./src/PkHex.Exporter.sln"
-    BUILDOUTPUTPATH: "./src/PkHex.Exporter/bin/Release/net9.0"
+    BUILDOUTPUTPATH: "/home/runner/work/PkHeX.Exporter/PkHeX.Exporter/bin/Release/net9.0/"
     REGISTRY: ghcr.io
     DOCKER_NAME: "i8beef/PkHex.Exporter"
 
