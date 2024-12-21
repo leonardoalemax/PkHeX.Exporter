@@ -51,7 +51,7 @@ jobs:
                   path: ${{ env.BUILDOUTPUTPATH }}
 
             - name: ZIP release artifact
-              run: zip -r ${{ env.APP }}-${{ steps.version.outputs.version-without-v }}.zip ${{ env.BUILDOUTPUTPATH }}
+              run: zip -r -j ${{ env.APP }}-${{ steps.version.outputs.version-without-v }}.zip ${{ env.BUILDOUTPUTPATH }}
 
             - name: GitHub release
               id: release
